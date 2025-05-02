@@ -1,0 +1,91 @@
+.header {
+  max-width: 1280px;
+  margin: 0 auto;
+  //padding: 0 15px;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  //color: #ffffff;
+
+  &__logo img {
+    height: 12px;  // подберите под свой логотип
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 330px;
+
+    button{
+      p{
+        margin-top: -3px;
+      }
+    }
+
+    .header__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      padding: 8px;
+      border-radius: 40px;
+      cursor: pointer;
+      color: #ffffff;
+
+      &--icon {
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+      }
+
+      &--write {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        background-color: #2C2C2C;
+
+
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    &__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

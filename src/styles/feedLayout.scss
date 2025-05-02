@@ -1,0 +1,104 @@
+/* src/styles/feedLayout.scss */
+$gap: 16px;
+$border: #eee;
+$accent: #007bff;
+
+.feed {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $gap 0;
+    border-bottom: 1px solid $border;
+
+    & .feed__search input {
+      padding: 8px;
+      border: 1px solid $border;
+      border-radius: 4px;
+      width: 200px;
+    }
+
+    & .feed__actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .icon-btn,
+      .write-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px 8px;
+        border-radius: 4px;
+
+        &:hover {
+          background: #f9f9f9;
+        }
+      }
+
+      .write-btn {
+        font-weight: bold;
+      }
+
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__tabs {
+    display: flex;
+    gap: 12px;
+    padding: 0 0 $gap 0;
+
+    button {
+      background: none;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      border-bottom: 2px solid transparent;
+
+      &.active {
+        border-color: $accent;
+        font-weight: bold;
+      }
+
+      &:hover:not(.active) {
+        background: #fafafa;
+      }
+    }
+  }
+
+  &__posts {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+
+    .post {
+      padding: $gap;
+      border: 1px solid $border;
+      border-radius: 4px;
+
+      h2 {
+        margin: 0 0 8px;
+        font-size: 18px;
+      }
+      p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+  }
+}

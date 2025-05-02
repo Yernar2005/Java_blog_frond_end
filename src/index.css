@@ -1,0 +1,41 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 100vh;
+
+
+  background-color: #121212;
+
+
+
+  color-scheme: light dark;
+  /*color: #f9f9f9;*/
+  /*background-color: #f9f9f9;*/
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+}
+a:hover {
+}
+
+body {
+
+}
+
+h1 {
+
+}
+
+button {
+
+}
+
+
