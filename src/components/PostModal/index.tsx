@@ -49,7 +49,7 @@ const PostModal: React.FC<PostModalProps> = ({isOpen, onClose, onToggleFullScree
                 onClose();
             }
 
-            navigate("/main")
+            navigate("/")
 
         } catch (error) {
             console.error("Ошибка при публикации: ", error)
@@ -63,7 +63,7 @@ const PostModal: React.FC<PostModalProps> = ({isOpen, onClose, onToggleFullScree
         if (onClose) {
             onClose();
         }
-        navigate("/main")
+        navigate("/")
     }
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {

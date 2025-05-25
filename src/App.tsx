@@ -1,6 +1,6 @@
 import {Routes, Route} from "react-router-dom";
-import Welcome from "./components/Welcome.tsx";
-
+import {useEffect, useContext} from "react";
+import {Context} from "./main.tsx";
 
 import './App.css'
 import LoginForm from "./components/auth/LoginForm.tsx";
@@ -12,13 +12,11 @@ import PostModal from "./components/PostModal/index.tsx";
 
 function App() {
 
-
     return (
         <Routes>
-            <Route path="/Welcome" element={<Welcome/>}/>
+            <Route path={"/"} element={<Home/>}/>
             <Route path="/auth/login" element={<LoginForm/>}/>
             <Route path={"/auth/registration"} element={<RegistrationForm/>}/>
-            <Route path={"/main"} element={<Home/>}/>
             <Route path={"/main/postModel"} element={<PostModal/>}/>
         </Routes>
     )

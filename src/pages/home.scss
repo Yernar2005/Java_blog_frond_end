@@ -1,9 +1,19 @@
 .content{
 
 
+
+
   &-top{
     max-width: 100%;
-    background-color: #25282B;
-    height: 60px;
+    background-color: black;
+    //height: 60px;
   }
+
+  &-center{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+  }
+
 }

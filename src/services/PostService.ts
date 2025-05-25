@@ -29,6 +29,11 @@ class PostService {
         // Заголовок Content-Type автоматически выставит axios при FormData
         return api.post<PostDto>("/posts", formData);
     }
+
+
+    static async deletePost(id: number): Promise<AxiosResponse<void>> {
+        return api.delete<void>(`/posts/${id}`)
+    }
 };
 
 export default PostService;

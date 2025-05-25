@@ -3,7 +3,7 @@ import {Context} from "../../main.tsx";
 import {NavigateFunction, useNavigate} from "react-router-dom";
 
 
-import "../style/registration.scss"
+import "./registration.scss"
 
 const RegistrationForm: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -18,7 +18,9 @@ const RegistrationForm: React.FC = () => {
       e.preventDefault();
       try{
           await store.registration(username, email, password, confirmPassword);
-          console.log("Successfully sent")
+          if(store.isAuth){
+              navigate('/')
+          }
       }
       catch (e){
           console.error("Error in registration: ", e)
@@ -35,7 +37,7 @@ const RegistrationForm: React.FC = () => {
     return (
         <div className="registration-container">
             <div className="registration-card">
-                <h1 className="registration-title">Зарегистрируйтесь и погрузитесь в музыку</h1>
+                <h1 className="registration-title">Зарегистрируйтесь и погрузитесь в error(0x01)</h1>
 
                 <form onSubmit={handleChangePage} className="registration-form">
 
@@ -103,10 +105,9 @@ const RegistrationForm: React.FC = () => {
                 <div className="login-prompt">
                     <span>Есть аккаунт?</span>
                     <button className="login-link" onClick={handleLogin}>
-                        Войти в MusicLover
+                        Войти в error(0x01)
                     </button>
                 </div>
-
             </div>
         </div>
     );

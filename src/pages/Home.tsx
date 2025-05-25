@@ -15,7 +15,7 @@ const Home: React.FC = () => {
             </div>
             <div className="content-center">
                 <Sidebar />
-                <PostList />
+                <PostList/>
             </div>
         </div>
     );

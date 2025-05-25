@@ -1,69 +1,50 @@
-import React, {useContext, useState} from 'react';
+"use client"
+
+import React, {useContext} from "react"
+import {useState} from "react"
+
+
+import './loginForm.scss'
 import {EyeOff, Eye} from "lucide-react"
-
-
-import '../style/loginForm.scss'
+import {useNavigate} from "react-router-dom";
 import {Context} from "../../main.tsx";
-import {observer} from "mobx-react-lite";
-import {NavigateFunction, useNavigate} from "react-router-dom";
 
 const LoginForm: React.FC = () => {
-    // const [email, setEmail] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [showPassword, setShowPassword] = useState<boolean>(false)
+
     const {store} = useContext(Context)
 
-    const navigate: NavigateFunction = useNavigate();
-
-    // useEffect(() => {
-    //     const checkToken = async () => {
-    //         try {
-    //             if (localStorage.getItem('token')) {
-    //                 await store.checkAuth();
-    //             }
-    //         } catch (e) {
-    //             console.log("It cannot find token", e.message)
-    //         }
-    //     }
-    //     checkToken()
-    // }, [store])
-    const handleChangePage = () => {
-        navigate('/auth/registration')
-    }
-
-    const handleSubmit =async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
 
         try {
-           await store.login(username, password)
+            await store.login(email, password)
 
-            if(store.isAuth){
-                navigate('/main')
+            if (store.isAuth) {
+                navigate('/')
+
             }
+        } catch (e) {
+            console.log("Ошибка во время регистрации: ", e)
         }
-        catch (e) {
-            console.log("Ошибка при авторизации: ", e)
-        }
-
     }
 
-    // const userStateDisplay = () => {
-    //     if(store.isAuth && store.user && store.user.username){
-    //         return `User authorized ${store.user.username}`
-    //         }
-    //         return `User do not authorize`
-    // }
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
+    const navigate = useNavigate()
+    const handleChangePage = () => {
+        navigate('/auth/registration')
+    }
 
     return (
+
         <div className="login-container">
             <div className="login-card">
-                {/*<SpotifyLogo/>*/}
-                <h1 className="login-title">Войти в MusicLover</h1>
+                <h1 className="login-title">Войти в error(0x01)</h1>
 
                 <form onSubmit={handleSubmit} className="login-form">
                     <div className="form-group">
@@ -71,8 +52,8 @@ const LoginForm: React.FC = () => {
                         <input
                             type="text"
                             id="email"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="Введите электронную почту"
                             required
                         />
@@ -115,7 +96,7 @@ const LoginForm: React.FC = () => {
                 <div className="registration-prompt">
                     <span>Нет аккаунта?</span>
                     <button className="registration-link" onClick={handleChangePage}>
-                        Регистрация в MusicLover
+                        Регистрация в error(0x01)
                     </button>
                 </div>
             </div>
@@ -123,4 +104,4 @@ const LoginForm: React.FC = () => {
     )
 }
 
-export default observer(LoginForm);
+export default LoginForm;

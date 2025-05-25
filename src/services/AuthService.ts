@@ -5,33 +5,45 @@ import api from "../http";
 
 export default class AuthService {
 
-    static async login(username:string, password:string): Promise<AxiosResponse<AuthResponse>> {
+    static async login(email: string, password: string): Promise<AxiosResponse<AuthResponse>> {
         return api.post<AuthResponse>('/auth/login',
             {
-                username,
+                email,
                 password
             },
             {
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                withCredentials: true
+
             }
         )
 
 
     }
 
-    static async registration(username:string, email:string, password:string, confirmPassword:string): Promise<AxiosResponse<AuthResponse>> {
+    static async registration(username: string, email: string, password: string, confirmPassword: string): Promise<AxiosResponse<AuthResponse>> {
         return api.post('/auth/registration', {
-            username,
-            email,
-            password,
-            confirmPassword,
+                username,
+                email,
+                password,
+                confirmPassword,
+            },
+            {
+                withCredentials: true
+
+            })
+    }
+    static async refreshToken(): Promise<AxiosResponse<AuthResponse>> {
+        return api.get('/refresh', {
+            withCredentials: true
         })
     }
 
 
     static async logout(): Promise<void> {
-        return api.post('/logout')
+        return api.post('/logout', {},{withCredentials: true
+        } )
     }
 }
